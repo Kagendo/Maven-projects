@@ -23,4 +23,14 @@ public class CustomerController {
     public List<Customer> getCustomers(){
         return customerService.getCustomers();
     }
+    @PutMapping
+    public Customer updateCustomer(@RequestBody Customer customer){
+        return customerService.updateCustomer(customer);
+    }
+    @DeleteMapping("/{id}")
+    public Customer deleteCustomer(@PathVariable Integer id){
+        Customer customerToDelete = new Customer(); // Create a new Customer object
+        customerToDelete.setId(id);
+        return customerService.deleteCustomer(customerToDelete);
+    }
 }
